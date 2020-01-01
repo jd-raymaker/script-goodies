@@ -4,7 +4,7 @@ Perfect to use on your Downloads folder where files gets cluttered up quickly :)
 
 ## Example
 ```powershell
-.\Start-Cleanup -path C:\temp
+.\Start-Cleanup.ps1 -path C:\temp
 ```
 
 ## OSX or Linux?
