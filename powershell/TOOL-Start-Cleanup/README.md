@@ -1,5 +1,6 @@
 # Start-Cleanup
-This tool cleans up your folder and moves every file in it to a pre-defined folder structure
+This tool cleans up your folder and moves every file in it to a pre-defined folder structure.
+
 Perfect to use on your Downloads folder where files gets cluttered up quickly :)
 
 ## Example
