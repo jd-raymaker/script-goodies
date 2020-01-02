@@ -1,8 +1,11 @@
-# Script location
-$ScriptDir = Split-Path $script:MyInvocation.MyCommand.Path
+[CmdletBinding()]
+param(
+    $import,
+    $export
+)
 
 # Load file with hostnames and run ping on each one
-$devices = [System.IO.File]::ReadLines("$ScriptDir\devices.txt") | ForEach-Object {
+$devices = [System.IO.File]::ReadLines($import) | ForEach-Object {
     Test-Connection -ComputerName $_ -Count 1 -AsJob
     Write-Host "Testing connection to $_"
 } | Get-Job | Receive-Job -Wait
@@ -19,4 +22,4 @@ $listDevices = $devices | Select-Object @{
 Write-Host "Exporting list..."
 
 # Save the results
-$listDevices | Export-Csv -Path "$ScriptDir\devices.csv" -NoTypeInformation
+$listDevices | Export-Csv -Path $export".csv" -NoTypeInformation
